@@ -28,12 +28,13 @@ export class AuthApiError extends Error {
   }
 }
 
-const BACKEND_URL = process.env.BACKEND_URL;
+// const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = 'http://localhost:8080';
 
 // fail fast in build/start time
-if (!BACKEND_URL) {
-  throw new Error('Missing BACKEND_URL environment variable');
-}
+// if (!BACKEND_URL) {
+//   throw new Error('Missing BACKEND_URL environment variable');
+// }
 
 async function postAuth(path: string, body: AuthBody) {
   const res = await fetch(`${BACKEND_URL}${path}`, {
